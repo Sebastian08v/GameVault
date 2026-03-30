@@ -5,17 +5,20 @@ import {SafeAreaView}from 'react-native-safe-area-context';
 
 import styles from '../styles/AddGameStyles';
 
+// Main component for adding a new game
 const AddGameScreen = () =>{
-    //Estados del formulario
+
+    // Form state management for each input field
     const [title, setTitle] = useState('');
     const [platform, setPlatform] = useState('');
     const [genre, setGenre] = useState('');
     const [price, setPrice] = useState('');
     const [ageRating, setAgeRating] = useState('');
     
+    // State to control form validation
     const [isValid, setIsValid] = useState(false);
 
-    //Validacion en tiempo real
+    // Effect to validate form fields whenever any input changes
     useEffect(()=>{
         if(
             title.trim()!== '' &&
@@ -31,7 +34,7 @@ const AddGameScreen = () =>{
         }
     },[title,platform,genre,price,ageRating]);
 
-    //Agregar juego
+    // Function to handle adding a game (currently shows an alert with data)
     const handleAddGame = () =>{
         Alert.alert(
             'Juego agregado',
@@ -43,7 +46,7 @@ const AddGameScreen = () =>{
         );
     };
 
-    //Limpiar formulario
+    // Function to clear all form inputs
     const handleClear = () =>{
         setTitle('');
         setPlatform('');
@@ -54,6 +57,7 @@ const AddGameScreen = () =>{
 
     return(
         <SafeAreaView style={styles.container}>
+            {/* Adjusts layout when keyboard appears (mainly on iOS) */}
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding': undefined }>
                 <Text style={styles.title}>Agregar videojuego</Text>
                 <TextInput 
@@ -87,21 +91,21 @@ const AddGameScreen = () =>{
 
                 <TextInput 
                     style={styles.input}
-                    placeholder='Clasificacion (Todos, 13+, 18+)'
+                    placeholder='Clasificacion (Todos, 13+, 17+)'
                     value={ageRating}
                     onChangeText={setAgeRating}
                 />
 
-                {/* Boton Agregar */}
+                {/* Add game button (enabled only if form is valid) */}
                 <TouchableOpacity style = {[styles.button,
-                    { backgroundColor: isValid ? '#4CAF50' : '#aaa'}]}
+                    { backgroundColor: isValid ? '#FFC107' : '#aaa'}]}
                     onPress={handleAddGame}
                     disabled={!isValid}
                 >
                     <Text style={styles.buttonText}>Agregar juego</Text>                        
                 </TouchableOpacity>
-
-                {/* Boton Limpiar */}
+                
+                {/* Clear form button */}
                 <TouchableOpacity style={styles.clearButton}
                     onPress={handleClear}
                 >

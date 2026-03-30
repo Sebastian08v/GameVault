@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container:{
         flex: 1,
         padding: 15,
-        backgroundColor: '#f2f2f2'
+        backgroundColor: '#673AB7'
     },
 
     card:{
@@ -32,7 +32,7 @@ export default StyleSheet.create({
 
     button:{
         marginTop: 10,
-        backgroundColor: '#2196f3',
+        backgroundColor: 'grey',
         padding: 10,
         borderRadius: 8,
         alignItems: 'center'
@@ -40,7 +40,7 @@ export default StyleSheet.create({
 
     backButton:{
         marginTop: 10,
-        backgroundColor: '#2196f3',
+        backgroundColor: 'grey',
         padding: 10,
         borderRadius: 8,
         alignItems: 'center'

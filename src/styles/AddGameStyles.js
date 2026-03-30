@@ -34,11 +34,12 @@ export default StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
         marginTop: 10,
-        backgroundColor: '#f44336'
+        backgroundColor: '#E0E0E0'
+        
     },
 
     buttonText:{
-        color: '#fff',
+        color: '#000000',
         fontWeight: 'bold'
     }
 });
